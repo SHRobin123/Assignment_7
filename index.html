@@ -198,6 +198,121 @@
     </footer>
   </div>
 
+   <!-- ==================== PAGE: TIMELINE ==================== -->
+  <div id="page-timeline" class="page">
+    <div class="container">
+      <h1 class="page-title">Timeline</h1>
+      <div class="filter-row">
+        <div class="select-wrap">
+          <select class="filter-select" id="timeline-filter" onchange="renderTimeline()">
+            <option value="All">Filter timeline</option>
+            <option value="Call">Call</option>
+            <option value="Text">Text</option>
+            <option value="Video">Video</option>
+            <option value="Meetup">Meetup</option>
+          </select>
+          <svg class="sel-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+      <div class="timeline-wrap">
+        <div class="timeline-list" id="timeline-list"></div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="f-light">Keen</span><span class="f-bold">Keeper</span></div>
+        <p class="footer-tagline">Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.</p>
+        <p class="footer-social-title">Social Links</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link"><img src="instagram.png" alt="Instagram" onerror="this.onerror=null;this.parentNode.innerHTML='<span class=sf>IG</span>'"/></a>
+          <a href="#" class="social-link"><img src="facebook.png" alt="Facebook" onerror="this.onerror=null;this.parentNode.innerHTML='<span class=sf>FB</span>'"/></a>
+          <a href="#" class="social-link"><img src="twitter.png" alt="X" onerror="this.onerror=null;this.parentNode.innerHTML='<span class=sf>X</span>'"/></a>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 KeenKeeper. All rights reserved.</span>
+          <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==================== PAGE: STATS ==================== -->
+  <div id="page-stats" class="page">
+    <div class="container">
+      <h1 class="page-title">Friendship Analytics</h1>
+
+      <!-- Chart Card — matches Figma exactly -->
+      <div class="chart-card">
+        <p class="chart-subtitle">By Interaction Type</p>
+        <div class="chart-body">
+          <div class="canvas-container">
+            <canvas id="stats-chart"></canvas>
+          </div>
+        </div>
+        <div class="chart-legend-row" id="chart-legend-row"></div>
+      </div>
+
+      <!-- Count Cards -->
+      <div class="stats-count-grid" id="stats-count-grid"></div>
+
+      <!-- Extra Stats Row -->
+      <div class="stats-extra-row">
+        <div class="stats-extra-card">
+          <h3 class="extra-card-title">Most Active Friend</h3>
+          <div id="stats-most-active"></div>
+        </div>
+        <div class="stats-extra-card">
+          <h3 class="extra-card-title">Status Breakdown</h3>
+          <div id="stats-status-list"></div>
+        </div>
+        <div class="stats-extra-card">
+          <h3 class="extra-card-title">Avg. Days Since Contact</h3>
+          <div id="stats-avg-days"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="f-light">Keen</span><span class="f-bold">Keeper</span></div>
+        <p class="footer-tagline">Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.</p>
+        <p class="footer-social-title">Social Links</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link"><img src="instagram.png" alt="Instagram" onerror="this.onerror=null;this.parentNode.innerHTML='<span class=sf>IG</span>'"/></a>
+          <a href="#" class="social-link"><img src="facebook.png" alt="Facebook" onerror="this.onerror=null;this.parentNode.innerHTML='<span class=sf>FB</span>'"/></a>
+          <a href="#" class="social-link"><img src="twitter.png" alt="X" onerror="this.onerror=null;this.parentNode.innerHTML='<span class=sf>X</span>'"/></a>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 KeenKeeper. All rights reserved.</span>
+          <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==================== PAGE: 404 ==================== -->
+  <div id="page-404" class="page">
+    <div class="not-found-wrap">
+      <p class="nf-number">404</p>
+      <h2 class="nf-title">Page not found</h2>
+      <p class="nf-sub">Looks like this friendship hasn't been added yet.</p>
+      <button class="btn-primary" onclick="navigateTo('home')">← Back to Home</button>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL ==================== -->
+  <div class="modal-overlay hidden" id="modal-overlay" onclick="hideAddModal()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3>Add a Friend</h3>
+        <button class="modal-close" onclick="hideAddModal()">✕</button>
+      </div>
+      <p class="modal-note">This feature is coming soon! You'll be able to add your friends and track meaningful connections here.</p>
+      <button class="btn-primary" style="width:100%;justify-content:center;" onclick="hideAddModal()">Got it</button>
+    </div>
+  </div>
+
+
 
     <script src="app.js"></script>
 </body>
