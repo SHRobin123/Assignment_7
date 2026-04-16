@@ -14,6 +14,81 @@
 <body>
     
 
+    <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <a href="#" class="logo-link" onclick="return navigateTo('home')">
+      <span class="logo-keen">Keen</span><span class="logo-keeper">Keeper</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="#" class="nav-btn active" id="nav-home" onclick="return navigateTo('home')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Home</span>
+      </a>
+      <a href="#" class="nav-btn" id="nav-timeline" onclick="return navigateTo('timeline')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Timeline</span>
+      </a>
+      <a href="#" class="nav-btn" id="nav-stats" onclick="return navigateTo('stats')">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <span>Stats</span>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#" onclick="navigateTo('home');closeMobileMenu();return false;">🏠 Home</a>
+    <a href="#" onclick="navigateTo('timeline');closeMobileMenu();return false;">🕐 Timeline</a>
+    <a href="#" onclick="navigateTo('stats');closeMobileMenu();return false;">📈 Stats</a>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- ==================== PAGE: HOME ==================== -->
+  <div id="page-home" class="page active">
+    <div class="container">
+      <div class="banner">
+        <h1 class="banner-title">Friends to keep close in your life</h1>
+        <p class="banner-sub">Your personal shelf of meaningful connections. Browse, tend, and nurture<br class="br-hide">the relationships that matter most.</p>
+        <button class="btn-primary" onclick="showAddModal()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add a Friend
+        </button>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-card"><span class="summary-num" id="s-total">—</span><span class="summary-label">Total Friends</span></div>
+        <div class="summary-card"><span class="summary-num" id="s-ontrack">—</span><span class="summary-label">On Track</span></div>
+        <div class="summary-card"><span class="summary-num" id="s-attention">—</span><span class="summary-label">Need Attention</span></div>
+        <div class="summary-card"><span class="summary-num">12</span><span class="summary-label">Interactions This Month</span></div>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title">Your Friends</h2>
+      </div>
+      <div class="friends-grid" id="friends-grid"></div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="f-light">Keen</span><span class="f-bold">Keeper</span></div>
+        <p class="footer-tagline">Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.</p>
+        <p class="footer-social-title">Social Links</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link"><img src="instagram.png" alt="Instagram" onerror="this.onerror=null;this.src='';this.parentNode.innerHTML='<span class=sf>IG</span>'"/></a>
+          <a href="#" class="social-link"><img src="facebook.png" alt="Facebook" onerror="this.onerror=null;this.src='';this.parentNode.innerHTML='<span class=sf>FB</span>'"/></a>
+          <a href="#" class="social-link"><img src="twitter.png" alt="X" onerror="this.onerror=null;this.src='';this.parentNode.innerHTML='<span class=sf>X</span>'"/></a>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 KeenKeeper. All rights reserved.</span>
+          <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
 
     <script src="app.js"></script>
 </body>
