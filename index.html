@@ -89,6 +89,115 @@
     </footer>
   </div>
 
+  
+
+  <!-- ==================== PAGE: FRIEND DETAIL ==================== -->
+  <div id="page-detail" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="navigateTo('home');return false;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Friends
+      </button>
+      <div class="detail-layout">
+        <!-- LEFT -->
+        <div class="detail-left-card">
+          <div class="detail-avatar-wrap">
+            <img id="d-picture" src="" alt="" class="detail-avatar" />
+            <h2 id="d-name" class="detail-name"></h2>
+            <div id="d-badges" class="detail-badges"></div>
+          </div>
+          <div class="detail-info-block">
+            <p class="info-label">Bio</p>
+            <p id="d-bio" class="info-bio"></p>
+          </div>
+          <div class="detail-info-block">
+            <p class="info-label">Preferred: email</p>
+            <p id="d-email" class="info-email"></p>
+          </div>
+          <div class="detail-actions">
+            <button class="action-btn" onclick="showToast('Snoozed for 2 weeks ⏰','info')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Snooze 2 Weeks
+            </button>
+            <button class="action-btn" onclick="showToast('Friend archived 📦','info')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+              Archive
+            </button>
+            <button class="action-btn danger" onclick="showToast('Friend deleted 🗑️','error')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+              Delete
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="detail-right">
+          <div class="metric-grid">
+            <div class="metric-card"><span id="d-days" class="metric-val"></span><span class="metric-label">Days Since Contact</span></div>
+            <div class="metric-card"><span id="d-goal-num" class="metric-val"></span><span class="metric-label">Goal (Days)</span></div>
+            <div class="metric-card"><span id="d-due" class="metric-val green-text"></span><span class="metric-label">Next Due</span></div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Relationship Goal</h3>
+              <button class="edit-btn" onclick="toggleEditGoal()">Edit</button>
+            </div>
+            <div id="goal-display">
+              <p class="goal-text">Connect every <strong id="goal-display-val"></strong></p>
+            </div>
+            <div id="goal-edit-form" class="goal-edit-row hidden">
+              <span class="goal-lbl">Connect every</span>
+              <input type="number" id="goal-input" class="goal-input" min="1" />
+              <span class="goal-lbl">days</span>
+              <button class="save-btn" onclick="saveGoal()">Save</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title" style="margin-bottom:1rem;">Quick Check-In</h3>
+            <div class="checkin-grid">
+              <button class="checkin-btn" onclick="logInteraction('Call')">
+                <img src="call.png" alt="Call" class="checkin-img"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+                <svg class="checkin-svg" style="display:none" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.31 11a19.79 19.79 0 01-3.07-8.67A2 2 0 013.22 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                <span>Call</span>
+              </button>
+              <button class="checkin-btn" onclick="logInteraction('Text')">
+                <img src="text.png" alt="Text" class="checkin-img"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+                <svg class="checkin-svg" style="display:none" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                <span>Text</span>
+              </button>
+              <button class="checkin-btn" onclick="logInteraction('Video')">
+                <img src="video.png" alt="Video" class="checkin-img"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+                <svg class="checkin-svg" style="display:none" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                <span>Video</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand"><span class="f-light">Keen</span><span class="f-bold">Keeper</span></div>
+        <p class="footer-tagline">Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.</p>
+        <p class="footer-social-title">Social Links</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link"><img src="instagram.png" alt="Instagram" onerror="this.onerror=null;this.parentNode.innerHTML='<span class=sf>IG</span>'"/></a>
+          <a href="#" class="social-link"><img src="facebook.png" alt="Facebook" onerror="this.onerror=null;this.parentNode.innerHTML='<span class=sf>FB</span>'"/></a>
+          <a href="#" class="social-link"><img src="twitter.png" alt="X" onerror="this.onerror=null;this.parentNode.innerHTML='<span class=sf>X</span>'"/></a>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 KeenKeeper. All rights reserved.</span>
+          <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
 
     <script src="app.js"></script>
 </body>
